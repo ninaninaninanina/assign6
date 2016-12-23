@@ -9,7 +9,7 @@ class HPBar {
   }
   
   void display(int hp){
-    // 顯示血條
+    // display the hp 
   }
   
 }

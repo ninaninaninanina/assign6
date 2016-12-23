@@ -1,7 +1,7 @@
 // 戰隊的最大值
 final int enemyAmount = 8 ;
 
-// 用來管理所有的 enemy
+// 用來管理所有的 enemy 和 boss
 Enemy[] enemyArray = new Enemy[enemyAmount] ;
 
 
@@ -29,7 +29,8 @@ void setup () {
   enemyImg = loadImage("img/enemy.png");
   enemyState = E_LINE ;
   arrangeLineEnemy() ;
-  fighter = new Fighter ();
+  
+  fighter      = new Fighter ();
   flameManager = new FlameManager( yourFrameRate / 5 ) ; // this means update 5 images in 1 second.
 }
 
@@ -37,7 +38,8 @@ void draw () {
 
 
 
-  // +_+ : display background 
+  // +_+ : display background
+  // ...
   background(0) ;
 
 
@@ -48,13 +50,10 @@ void draw () {
 
   for (int i = 0; i < enemyAmount; i++) {
     enemyArray[i].move() ;
-    if (i == 0 ) {
-      println("x " + enemyArray[i].x + " " +  enemyArray[i].y);
-    }
-
 
     // +_+ : collision detection : enemy & bullets  
-
+    // ....
+    
     // +_+ : collision detection : enemy & fighter
     if (enemyArray[i].isHit(fighter.x, fighter.y, fighter.img.width, fighter.img.height )) {
 
@@ -72,9 +71,17 @@ void draw () {
   // +_+ : this will draw all flames.
   flameManager.display();
   
+  
   fighter.move();
+  
+  // +_+ : add some code in the fighter.display method ;
   fighter.display();  
 
+
+
+  //===============
+  //  REARRANGE ENEMY !! 
+  //===============
 
   // when all enemy is out of screen :  
   if (enemyFinished()) {
@@ -110,8 +117,14 @@ void keyReleased(){
 }
 
 
+
+
+
+
+
+
 //===============
-//  LIBRARY :
+//  FUNCTIONS :
 //===============
 //  use them directly.
 

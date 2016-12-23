@@ -3,21 +3,22 @@ class Enemy {
   float x, y ;
   PImage img ; 
   float speed ; 
+  
+  // int life ; // if you want to make Boss class , use it.
  
   Enemy (float x, float y) {
-    this.x = x ; 
-    this.y = y ;
-    this.speed = 5;
-    img = enemyImg ; 
+    
+    img = loadImage("img/enemy.png");
+    // ...
     
   }
 
   void display () {
-    image (img, x, y );
+    // ...
   }
   void move () {
+    // ...
     
-    x+= speed ;
   }
 
   boolean isHit (int bx, int by, int bw, int bh ) {
